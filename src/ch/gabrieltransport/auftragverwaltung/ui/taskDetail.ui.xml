@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
+<?xdevuiml version="1.0"?>
+<?template NONE?>
+<?import ch.gabrieltransport.auftragverwaltung.entities.Anhaenger?>
+<?import ch.gabrieltransport.auftragverwaltung.entities.Fahrer?>
+<?import ch.gabrieltransport.auftragverwaltung.entities.Fahrzeug?>
+<?import com.xdev.ui.XdevAbsoluteLayout?>
+<?import com.xdev.ui.XdevButton?>
+<?import com.xdev.ui.XdevCheckBox?>
+<?import com.xdev.ui.XdevGridLayout?>
+<?import com.xdev.ui.XdevHorizontalLayout?>
+<?import com.xdev.ui.XdevLabel?>
+<?import com.xdev.ui.XdevPopupDateField?>
+<?import com.xdev.ui.XdevTextArea?>
+<?import com.xdev.ui.XdevTextField?>
+<?import com.xdev.ui.XdevVerticalLayout?>
+<?import com.xdev.ui.XdevView?>
+<?import com.xdev.ui.entitycomponent.combobox.XdevComboBox?>
+<?import com.xdev.ui.entitycomponent.listselect.XdevOptionGroup?>
+<?import com.xdev.ui.entitycomponent.listselect.XdevTwinColSelect?>
+<?import com.xdev.ui.filter.XdevContainerFilterComponent?>
+<?import java.lang.String?>
+<XdevView xmlns:x="http://xml.xdev-software.com/xdevuiml" x:name="taskDetail">
+    <x:constraints width="800px" zpos="0" height="950px" />
+    <XdevAbsoluteLayout x:name="absoluteLayout">
+        <x:constraints width="800px" zpos="0" height="950px" />
+        <XdevVerticalLayout x:name="verticalLayout" margin="tb">
+            <x:constraints top="0px" left="20px" width="100%" height="100%" />
+            <XdevVerticalLayout x:name="verticalLayout2" margin="">
+                <x:constraints weighty="0.58" width="100%" height="100%" />
+                <XdevHorizontalLayout x:name="horizontalLayout4" margin="rl">
+                    <x:constraints weighty="0.1" width="100%" height="100%" />
+                    <XdevLabel x:name="lblMission" value="Auftrag">
+                        <x:constraints top="50px" left="29px" weighty="0.0" weightx="0.1" width="100%" alignment="BOTTOM_CENTER" height="35px" />
+                    </XdevLabel>
+                    <XdevTextField columns="5" x:name="txtDescription">
+                        <x:constraints weightx="0.6" width="100%" alignment="BOTTOM_CENTER" height="34px" />
+                    </XdevTextField>
+                    <XdevButton caption="Delete" x:name="button3">
+                        <x:constraints weighty="0.0" weightx="0.0" alignment="BOTTOM_LEFT" height="37px" />
+                        <x:event>click.buttonClick</x:event>
+                    </XdevButton>
+                </XdevHorizontalLayout>
+                <XdevHorizontalLayout x:name="horizontalLayout7" margin="rl">
+                    <x:constraints weighty="0.1" width="100%" alignment="MIDDLE_LEFT" height="100%" />
+                    <XdevCheckBox caption="Umzug" x:name="chkUmzug">
+                        <x:constraints weightx="0.0" />
+                        <x:event>valueChange.valueChange</x:event>
+                    </XdevCheckBox>
+                    <XdevCheckBox caption="Möbellift" x:name="chkLift" visible="false">
+                        <x:constraints weightx="0.0" />
+                    </XdevCheckBox>
+                    <XdevCheckBox caption="Garage" x:name="chkGarage">
+                        <x:constraints weightx="0.0" />
+                        <x:event>valueChange.valueChange</x:event>
+                    </XdevCheckBox>
+                </XdevHorizontalLayout>
+                <XdevHorizontalLayout x:name="horizontalLayout" margin="rl">
+                    <x:constraints top="70px" left="0px" weighty="0.35" width="100%" height="100%" />
+                    <XdevTextArea columns="5" caption="Bemerkung" x:name="txtADescription" rows="2">
+                        <x:constraints weightx="0.1" width="100%" height="100%" />
+                    </XdevTextArea>
+                    <XdevGridLayout x:name="gridLayout" margin="">
+                        <x:constraints weightx="0.1" width="100%" alignment="MIDDLE_RIGHT" height="100%" />
+                        <XdevPopupDateField caption="Von" x:name="fromDate">
+                            <x:constraints gridx="1" gridy="1" weighty="0.2" weightx="0.1" width="100%" height="28px" />
+                            <x:event>valueChange.valueChange</x:event>
+                        </XdevPopupDateField>
+                        <XdevPopupDateField caption="Bis" x:name="untilDate">
+                            <x:constraints gridx="1" gridy="2" weighty="0.2" weightx="0.1" width="100%" height="28px" />
+                            <x:event>valueChange.valueChange</x:event>
+                        </XdevPopupDateField>
+                    </XdevGridLayout>
+                </XdevHorizontalLayout>
+                <XdevHorizontalLayout x:name="horizontalLayout3" margin="rbl">
+                    <x:constraints weighty="0.3" weightx="0.0" width="100%" height="100%" />
+                    <XdevOptionGroup x:name="optionGroup" x:autoQuery="false">
+                        <x:constraints gridHeight="1" gridx="1" gridy="1" weighty="0.0" weightx="0.2" alignment="TOP_LEFT" gridWidth="1" />
+                        <x:typeArguments>
+                            <typeArgument type="String" />
+                        </x:typeArguments>
+                        <x:event>valueChange.valueChange</x:event>
+                    </XdevOptionGroup>
+                    <XdevGridLayout x:name="gridLayout2" margin="" visible="false">
+                        <x:constraints weightx="0.3" width="100%" alignment="MIDDLE_RIGHT" height="100%" />
+                        <XdevLabel x:name="label10" value="Zeit (hh:mm)">
+                            <x:constraints gridx="1" gridy="1" weighty="0.0" weightx="0.0" />
+                        </XdevLabel>
+                        <XdevLabel x:name="label8" value="Von">
+                            <x:constraints gridx="1" gridy="2" weighty="0.25" weightx="0.0" />
+                        </XdevLabel>
+                        <XdevTextField columns="5" x:name="lblTimeFrom">
+                            <x:constraints gridx="2" gridy="2" weighty="0.25" weightx="0.1" width="70%" height="28px" />
+                            <x:event>textChange.textChange</x:event>
+                        </XdevTextField>
+                        <XdevLabel x:name="label9" value="Bis">
+                            <x:constraints gridx="1" gridy="3" weighty="0.2" weightx="0.0" />
+                        </XdevLabel>
+                        <XdevTextField columns="5" x:name="txtTimeUntil">
+                            <x:constraints gridx="2" gridy="3" weighty="0.2" weightx="0.1" width="70%" height="28px" />
+                            <x:event>textChange.textChange</x:event>
+                        </XdevTextField>
+                    </XdevGridLayout>
+                </XdevHorizontalLayout>
+            </XdevVerticalLayout>
+            <XdevVerticalLayout x:name="verticalLayout3" margin="">
+                <x:constraints weighty="0.3" width="100%" height="100%" />
+                <XdevHorizontalLayout x:name="horizontalLayout9" margin="rl">
+                    <x:constraints weighty="0.24" width="100%" alignment="BOTTOM_CENTER" height="100%" />
+                    <XdevLabel x:name="lblVehicle" value="Fahrzeug">
+                        <x:constraints weighty="0.0" weightx="0.0" alignment="BOTTOM_LEFT" />
+                    </XdevLabel>
+                </XdevHorizontalLayout>
+                <XdevHorizontalLayout x:name="horizontalLayout2" margin="rl">
+                    <x:constraints top="256px" left="0px" weighty="0.3" width="100%" height="50px" />
+                    <XdevComboBox itemCaptionFromAnnotation="false" x:name="cmbVehicle" nullSelectionAllowed="false" x:entity="Fahrzeug">
+                        <x:constraints weightx="0.3" width="100%" alignment="MIDDLE_LEFT" height="28px" />
+                        <x:entityProperty>
+                            <entry type="int" property="nummer" />
+                        </x:entityProperty>
+                        <x:typeArguments>
+                            <typeArgument type="Fahrzeug" />
+                        </x:typeArguments>
+                        <x:event>valueChange.valueChange</x:event>
+                    </XdevComboBox>
+                    <XdevLabel x:name="lblSign" value="Kennzeichen">
+                        <x:constraints weightx="0.3" />
+                    </XdevLabel>
+                    <XdevLabel x:name="lblWeight" value="Gewicht">
+                        <x:constraints weightx="0.3" />
+                    </XdevLabel>
+                </XdevHorizontalLayout>
+                <XdevHorizontalLayout x:name="hlTrailer" margin="rbl" visible="false">
+                    <x:constraints weighty="0.38" weightx="0.0" width="100%" height="100%" />
+                    <XdevComboBox invalidAllowed="false" caption="Anhänger" itemCaptionFromAnnotation="false" x:name="cmbTrailer" x:entity="Anhaenger" x:autoQuery="false">
+                        <x:constraints weightx="0.3" width="100%" alignment="MIDDLE_LEFT" height="28px" />
+                        <x:entityProperty>
+                            <entry type="int" property="nummer" />
+                        </x:entityProperty>
+                        <x:typeArguments>
+                            <typeArgument type="Anhaenger" />
+                        </x:typeArguments>
+                        <x:event>valueChange.valueChange</x:event>
+                    </XdevComboBox>
+                    <XdevLabel x:name="lblTrailerSign">
+                        <x:constraints weightx="0.2" alignment="BOTTOM_CENTER" />
+                    </XdevLabel>
+                    <XdevLabel x:name="lblTrailerWeight">
+                        <x:constraints weightx="0.2" alignment="BOTTOM_CENTER" />
+                    </XdevLabel>
+                    <XdevLabel x:name="lblTrailerTyp">
+                        <x:constraints weightx="0.2" alignment="BOTTOM_CENTER" />
+                    </XdevLabel>
+                </XdevHorizontalLayout>
+            </XdevVerticalLayout>
+            <XdevVerticalLayout x:name="verticalLayout4" margin="">
+                <x:constraints weighty="0.5" width="100%" height="100%" />
+                <XdevHorizontalLayout x:name="horizontalLayout10" margin="rl">
+                    <x:constraints weighty="0.06" width="100%" alignment="BOTTOM_CENTER" height="100%" />
+                    <XdevLabel x:name="lblDriver" value="Fahrer">
+                        <x:constraints top="659px" left="29px" weighty="0.03" weightx="0.0" alignment="BOTTOM_LEFT" />
+                    </XdevLabel>
+                </XdevHorizontalLayout>
+                <XdevHorizontalLayout x:name="horizontalLayout6" margin="rl">
+                    <x:constraints weighty="0.05" width="100%" />
+                    <XdevContainerFilterComponent x:searchableProperties="nachname,vorname" x:name="containerFilterComponent" x:filterableProperties="nachname,vorname" x:container="tsDriver">
+                        <x:constraints weighty="0.0" weightx="1.0" width="100%" height="30px" />
+                    </XdevContainerFilterComponent>
+                </XdevHorizontalLayout>
+                <XdevHorizontalLayout x:name="horizontalLayout8" margin="rl">
+                    <x:constraints weighty="0.3" width="100%" />
+                    <XdevTwinColSelect itemCaptionFromAnnotation="false" x:name="tsDriver" rightColumnCaption="zugewiesen" x:entity="Fahrer" leftColumnCaption="verfügbar" x:autoQuery="false" rows="7">
+                        <x:constraints weighty="0.1" weightx="0.1" width="100%" height="100%" />
+                        <x:entityProperty>
+                            <entry type="String" property="name" />
+                        </x:entityProperty>
+                        <x:typeArguments>
+                            <typeArgument type="Fahrer" />
+                        </x:typeArguments>
+                        <x:data methodName="findAll" />
+                    </XdevTwinColSelect>
+                </XdevHorizontalLayout>
+            </XdevVerticalLayout>
+            <XdevHorizontalLayout x:name="horizontalLayout5" margin="rl">
+                <x:constraints top="-5px" left="945px" weighty="0.1" alignment="MIDDLE_RIGHT" />
+                <XdevButton caption="OK" x:name="btnSave">
+                    <x:constraints top="985px" left="561px" weighty="0.0" weightx="0.0" />
+                </XdevButton>
+                <XdevButton caption="Abbrechen" x:name="btnCancel">
+                    <x:constraints top="985px" left="640px" weighty="0.0" weightx="0.0" />
+                </XdevButton>
+            </XdevHorizontalLayout>
+        </XdevVerticalLayout>
+    </XdevAbsoluteLayout>
+</XdevView>
+

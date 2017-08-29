@@ -1,0 +1,4 @@
+import java.util.List
+import ch.gabrieltransport.auftragverwaltung.entities.Fahrerfunktion
+import ch.gabrieltransport.auftragverwaltung.entities.Fahrer
+import ch.gabrieltransport.auftragverwaltung.entities.Fahrerfunktionmap

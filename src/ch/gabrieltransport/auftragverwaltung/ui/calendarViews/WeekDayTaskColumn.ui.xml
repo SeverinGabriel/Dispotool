@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
+<?xdevuiml version="1.0"?>
+<?template NONE?>
+<?import com.xdev.ui.XdevGridLayout?>
+<?import com.xdev.ui.XdevHorizontalLayout?>
+<?import com.xdev.ui.XdevVerticalLayout?>
+<XdevHorizontalLayout xmlns:x="http://xml.xdev-software.com/xdevuiml" spacing="false" x:name="MondayGuiGenerator" margin="">
+    <x:constraints zpos="0" width="100%" height="100%" />
+    <x:event>contextClick.contextClick</x:event>
+    <XdevGridLayout spacing="false" x:name="gridLayout" margin="">
+        <x:constraints weightx="1.0" width="100%" alignment="TOP_LEFT" />
+        <XdevHorizontalLayout x:name="horizontalLayout" margin="">
+            <x:constraints gridx="1" gridy="1" weighty="0.1" weightx="1.0" width="100%" />
+            <XdevVerticalLayout spacing="false" x:name="tasksMorning" margin="">
+                <x:constraints weightx="0.1" width="100%" />
+            </XdevVerticalLayout>
+            <XdevVerticalLayout styleName="borderLeft" spacing="false" x:name="tasksAfternoon" margin="">
+                <x:constraints splitPos="SECOND" top="1313px" left="2036px" weightx="0.1" width="100%" />
+            </XdevVerticalLayout>
+        </XdevHorizontalLayout>
+        <XdevVerticalLayout spacing="false" x:name="tasksDaylong" margin="">
+            <x:constraints gridx="1" gridy="2" weighty="0.0" weightx="1.0" width="100%" />
+        </XdevVerticalLayout>
+    </XdevGridLayout>
+</XdevHorizontalLayout>
+
